@@ -1,0 +1,2339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hashmi Frangness - The Signature Perfume in Pakistan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #8e44ad;
+            --secondary-color: #9b59b6;
+            --accent-color: #e74c3c;
+            --light-color: #f9f9f9;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --white: #fff;
+            --success-color: #2ecc71;
+        }
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+
+ .bbtn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        .bbtn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        
+        nav ul {
+            display: flex;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 700;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            margin-left: 20px;
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--accent-color);
+            color: var(--white);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-color);
+            margin-left: 20px;
+        }
+        
+
+
+
+
+
+
+
+
+
+        /* Mobile Sidebar */
+       /* Mobile Sidebar Styles */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100%;
+            background: #fff;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar-header h3 {
+            color: #8e44ad;
+        }
+
+        .close-sidebar {
+            font-size: 24px;
+            cursor: pointer;
+            color: #e74c3c;
+        }
+
+        .sidebar-nav ul li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar-nav ul li a {
+            color: #2c3e50;
+            font-weight: 500;
+            display: block;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-nav ul li a:hover {
+            color: #e74c3c;
+            padding-left: 10px;
+        }
+
+        @media (min-width: 769px) {
+            .sidebar-overlay,
+            .sidebar {
+                display: none;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        .section-title p {
+            color: var(--dark-color);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .product-info .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .product-info .btn {
+            width: 100%;
+            text-align: center;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+
+
+
+
+
+/* Review Form Styles */
+.review-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.review-form h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.rating-input {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.rating-input i {
+    font-size: 1.5rem;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.rating-input i:hover,
+.rating-input i.active {
+    color: #ffc107;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #3a7bc8;
+}
+
+/* Make sure to include Font Awesome for the star icons */
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        /* Reviews Section */
+        .reviews {
+            padding: 80px 0;
+        }
+        
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .review-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .review-card .stars {
+            color: gold;
+            margin-bottom: 15px;
+        }
+        
+        .review-card p {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--dark-color);
+        }
+        
+        .review-card .reviewer {
+            display: flex;
+            align-items: center;
+        }
+        
+        .review-card .reviewer img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .review-card .reviewer-info h4 {
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .review-card .reviewer-info p {
+            color: var(--accent-color);
+            font-size: 14px;
+            font-style: normal;
+        }
+        
+        /* Ingredients Section */
+        .ingredients {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .ingredient-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .ingredient-item {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background: var(--light-color);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .ingredient-item:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+            color: var(--white);
+        }
+        
+        .ingredient-item:hover i,
+        .ingredient-item:hover h3,
+        .ingredient-item:hover p {
+            color: var(--white);
+        }
+        
+        .ingredient-item i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .ingredient-item h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+            transition: all 0.3s ease;
+        }
+        
+        .ingredient-item p {
+            color: var(--dark-color);
+            transition: all 0.3s ease;
+        }
+        
+        /* Newsletter Section */
+        .newsletter {
+            padding: 80px 0;
+            background: linear-gradient(rgba(142, 68, 173, 0.9), rgba(142, 68, 173, 0.9)), url('images/back.webp');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .newsletter h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form .btn {
+            border-radius: 0 30px 30px 0;
+            padding: 15px 25px;
+            background: var(--accent-color);
+        }
+        
+        .newsletter-form .btn:hover {
+            background: #c0392b;
+        }
+        
+        /* Cart Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: var(--white);
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+        
+        /* Checkout Steps */
+        .checkout-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .checkout-steps::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #eee;
+            z-index: 1;
+        }
+        
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #eee;
+            color: var(--dark-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .step.active .step-number {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .step.completed .step-number {
+            background: var(--success-color);
+            color: var(--white);
+        }
+        
+        .step-text {
+            font-size: 14px;
+            color: #999;
+            font-weight: 500;
+        }
+        
+        .step.active .step-text {
+            color: var(--primary-color);
+        }
+        
+        .step.completed .step-text {
+            color: var(--success-color);
+        }
+        
+        /* Checkout Content */
+        .checkout-content {
+            display: none;
+        }
+        
+        .checkout-content.active {
+            display: block;
+        }
+        
+        /* Cart Items Step */
+        .cart-items {
+            margin-bottom: 30px;
+        }
+        
+        .cart-item {
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            gap: 20px;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
+        .cart-item-info h4 {
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .cart-item-price {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-item-quantity button {
+            background: var(--light-color);
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .cart-item-quantity span {
+            margin: 0 10px;
+        }
+        
+        .remove-item {
+            color: var(--accent-color);
+            cursor: pointer;
+            margin-left: 15px;
+        }
+        
+        .cart-total {
+            text-align: right;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 30px 0;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .cart-total span {
+            color: var(--primary-color);
+        }
+        
+        .checkout-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        /* Shipping Step */
+        .shipping-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .shipping-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .shipping-form input,
+        .shipping-form textarea,
+        .shipping-form select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .shipping-form input:focus,
+        .shipping-form textarea:focus,
+        .shipping-form select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.2);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        /* Payment Step */
+        .payment-methods {
+            margin: 20px 0;
+        }
+        
+        .payment-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-method:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .payment-method input {
+            margin-right: 15px;
+        }
+        
+        .payment-method-label {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .payment-method-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            color: var(--primary-color);
+        }
+        
+        .payment-method-text h4 {
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .payment-method-text p {
+            font-size: 14px;
+            color: #777;
+        }
+        
+        .payment-details {
+            background: var(--light-color);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .payment-details.active {
+            display: block;
+        }
+        
+        /* Success Step */
+        .order-success {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .order-success i {
+            font-size: 60px;
+            color: var(--success-color);
+            margin-bottom: 20px;
+        }
+        
+        .order-success h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .order-success p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--dark-color);
+        }
+        
+        .order-id {
+            background: var(--light-color);
+            padding: 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .whatsapp-btn i {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        
+        /* Product Detail Modal */
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .product-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .product-images img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-images img:hover {
+            transform: scale(1.05);
+        }
+        
+        .product-main-image {
+            grid-column: span 2;
+        }
+        
+        .product-info-detail h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .product-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .product-description {
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+        
+        .footer-col p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                order: -1;
+            }
+            
+            .product-detail {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero {
+                height: 500px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form .btn {
+                border-radius: 30px;
+                width: 100%;
+            }
+            
+            .cart-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .cart-item-img {
+                margin: 0 auto;
+            }
+            
+            .checkout-actions {
+                flex-direction: column;
+            }
+            
+            .checkout-actions .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .logo {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            
+            .header-right {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero h1 {
+                font-size: 30px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .ingredient-list {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .sidebar {
+                width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo"><i class="fas fa-spa"></i>Hashmi <span>Frangness</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#ingredients">Ingredients</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                 <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar-overlay"></div>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>Hashmi Frangness</h3>
+            <div class="close-sidebar">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#ingredients">Ingredients</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Premium Perfumes for the Discerning</h1>
+            <p>Experience luxury with our exquisite collection of fragrances crafted with the finest ingredients from around the world.</p>
+            <a href="#products" class="bbtn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Collection</h2>
+                <p>Discover our handcrafted perfumes that embody elegance and sophistication</p>
+            </div>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/h1.webp" alt="Royal Eau de Parfume">
+                    </div>
+                    <div class="product-info">
+                        <h3>Royal Eau de Parfume</h3>
+                        <div class="price">Rs. 8,500</div>
+                        <button class="btn add-to-cart" data-id="1" data-name="Royal Eau de Parfum" data-price="8500" data-image="images/h1.webp">Add to Cart</button>
+                        <button class="btn view-details" style="margin-top: 10px; background: var(--accent-color);" data-id="1">More Details</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/royal oud.webp" alt="Royal OUD">
+                    </div>
+                    <div class="product-info">
+                        <h3>Hashmi De OUD</h3>
+                        <div class="price">Rs. 3,800</div>
+                        <button class="btn add-to-cart" data-id="2" data-name="Hashmi De OUD" data-price="3800" data-image="images/royal oud.webp ">Add to Cart</button>
+                        <button class="btn view-details" style="margin-top: 10px; background: var(--accent-color);" data-id="2">More Details</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/Royal Amber.webp" alt="Royal Amber">
+                    </div>
+                    <div class="product-info">
+                        <h3>Royal Amber</h3>
+                        <div class="price">Rs. 2,200</div>
+                        <button class="btn add-to-cart" data-id="3" data-name="Royal Amber" data-price="2200" data-image="images/Royal Amber.webp">Add to Cart</button>
+                        <button class="btn view-details" style="margin-top: 10px; background: var(--accent-color);" data-id="3">More Details</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/1.webp" alt="Hashmi Ingredient's">
+                    </div>
+                    <div class="product-info">
+                        <h3>Hashmi Ingredient's</h3>
+                        <div class="price">Rs. 1800</div>
+                        <button class="btn add-to-cart" data-id="4" data-name="Hashmi Perfumes" data-price="1800" data-image="images/1.webp">Add to Cart</button>
+                        <button class="btn view-details" style="margin-top: 10px; background: var(--accent-color);" data-id="4">More Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Hashmi Frangness was founded in 2010 with a vision to bring luxury fragrances to Pakistan at accessible prices. Our founder, Baqer Ali Hashmi, was inspired by his travels through the Middle East and Europe, where he discovered the art of perfumery.</p>
+                    <p>Today, we combine traditional Eastern fragrance techniques with modern Western influences to create unique scents that stand out in the market.</p>
+                    <p>Our mission is to provide premium quality perfumes that enhance your personality and leave a lasting impression.</p>
+                </div>
+                <div class="about-img">
+                    <img src="images/Pic.jpg" alt="Hashmi Frangness Store">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Reviews</h2>
+                <p>What our valued customers say about our products</p>
+            </div>
+            <div class="review-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The Royal Oud perfume is absolutely divine! The scent lasts all day and I receive compliments wherever I go. Definitely worth the price."</p>
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Khan">
+                        <div class="reviewer-info">
+                            <h4>Sarah Khan</h4>
+                            <p>Lahore</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"I've tried many brands but Hashmi Frangness stands out. The Jasmine Bloom is my signature scent now. Excellent customer service too!"</p>
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ali Ahmed">
+                        <div class="reviewer-info">
+                            <h4>Ali Ahmed</h4>
+                            <p>Karachi</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The packaging and presentation is luxurious. Sandalwood Mystique has become my go-to fragrance for special occasions. Highly recommended!"</p>
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Fatima Riaz">
+                        <div class="reviewer-info">
+                            <h4>Fatima Riaz</h4>
+                            <p>Islamabad</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Review Form -->
+            <div class="review-form">
+                <h3>Share Your Experience</h3>
+                <form id="new-review">
+                    <div class="form-group">
+                        <label for="review-name">Your Name</label>
+                        <input type="text" id="review-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-location">Location (City)</label>
+                        <input type="text" id="review-location" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Rating</label>
+                        <div class="rating-input">
+                            <i class="far fa-star" data-rating="1"></i>
+                            <i class="far fa-star" data-rating="2"></i>
+                            <i class="far fa-star" data-rating="3"></i>
+                            <i class="far fa-star" data-rating="4"></i>
+                            <i class="far fa-star" data-rating="5"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-text">Your Review</label>
+                        <textarea id="review-text" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section class="ingredients" id="ingredients">
+        <div class="container">
+            <div class="section-title">
+                <h2>Premium Ingredients</h2>
+                <p>We use only the finest natural and synthetic ingredients to create our unique fragrances</p>
+            </div>
+            <div class="ingredient-list">
+                <!-- Ingredient 1 -->
+                <div class="ingredient-item">
+                    <i class="fas fa-spa"></i>
+                    <h3>Natural Oils</h3>
+                    <p>Pure essential oils extracted from flowers, woods, and spices</p>
+                </div>
+                
+                <!-- Ingredient 2 -->
+                <div class="ingredient-item">
+                    <i class="fas fa-wine-bottle"></i>
+                    <h3>Rose Base</h3>
+                    <p>High-quality Rose that ensures proper fragrance diffusion</p>
+                </div>
+                
+                <!-- Ingredient 3 -->
+                <div class="ingredient-item">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Botanical Extracts</h3>
+                    <p>Rare plant extracts from sustainable sources worldwide</p>
+                </div>
+                
+                <!-- Ingredient 4 -->
+                <div class="ingredient-item">
+                    <i class="fas fa-flask"></i>
+                    <h3>Synthetic Molecules</h3>
+                    <p>Laboratory-created aroma molecules for unique scent profiles</p>
+                </div>
+                
+                <!-- Ingredient 5 -->
+                <div class="ingredient-item">
+                    <i class="fas fa-tint"></i>
+                    <h3>Distilled Water</h3>
+                    <p>Purified water to balance the fragrance concentration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Be the first to know about new arrivals, exclusive offers, and fragrance tips</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <!-- About Column -->
+                <div class="footer-col">
+                    <h3>Hashmi Frangness</h3>
+                    <p>Premium perfumes crafted with passion since 2010. We bring you luxury fragrances at accessible prices.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links Column -->
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#ingredients">Ingredients</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Service Column -->
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Column -->
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Model Town A, Bahawalpur, Pakistan</p>
+                    <p><i class="fas fa-phone"></i> +92 3055010392</p>
+                    <p><i class="fas fa-envelope"></i> hashmifrangness@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 10AM - 10PM</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Hashmi Frangness. All Rights Reserved | Design by Osman Bey</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/923327055550" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Your Shopping Cart</h2>
+            
+            <!-- Checkout Steps -->
+            <div class="checkout-steps">
+                <div class="step active" id="step1">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Cart Items</div>
+                </div>
+                <div class="step" id="step2">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Shipping</div>
+                </div>
+                <div class="step" id="step3">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Payment</div>
+                </div>
+                <div class="step" id="step4">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Complete</div>
+                </div>
+            </div>
+            
+            <!-- Cart Items Step -->
+            <div class="checkout-content active" id="cart-step">
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items will be dynamically inserted here -->
+                    <p class="empty-cart-message">Your cart is empty</p>
+                </div>
+                <div class="cart-total">
+                    Total: Rs. <span id="cart-total">0</span>
+                </div>
+                
+                <div class="checkout-actions">
+                    <button class="btn" id="continue-shopping">Continue Shopping</button>
+                    <button class="btn" id="proceed-to-shipping">Proceed to Shipping</button>
+                </div>
+            </div>
+            
+            <!-- Shipping Step -->
+            <div class="checkout-content" id="shipping-step">
+                <form class="shipping-form" id="shipping-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Delivery Address</label>
+                        <textarea id="address" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="postal">Postal Code</label>
+                            <input type="text" id="postal">
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-actions">
+                        <button type="button" class="btn" id="back-to-cart">Back to Cart</button>
+                        <button type="button" class="btn" id="proceed-to-payment">Proceed to Payment</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Payment Step -->
+            <div class="checkout-content" id="payment-step">
+                <div class="payment-methods">
+                    <h3>Select Payment Method</h3>
+                    
+                    <div class="payment-method">
+                        <input type="radio" id="easypaisa" name="payment" value="easypaisa" required>
+                        <label for="easypaisa" class="payment-method-label">
+                            <div class="payment-method-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="payment-method-text">
+                                <h4>Easypaisa</h4>
+                                <p>Mobile wallet payment</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="payment-details" id="easypaisa-details">
+                        <p>Please send payment to:</p>
+                        <p><strong>Name:</strong> Muhammad Baqer Ali Javeed</p>
+                        <p><strong>Number:</strong> 0305-5010392</p>
+                        <p>After payment, please share the transaction ID via WhatsApp.</p>
+                    </div>
+                    
+                    <div class="payment-method">
+                        <input type="radio" id="bank" name="payment" value="bank">
+                        <label for="bank" class="payment-method-label">
+                            <div class="payment-method-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="payment-method-text">
+                                <h4>Bank Transfer</h4>
+                                <p>Direct bank transfer</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="payment-details" id="bank-details">
+                        <p><strong>Bank:</strong> UBL Bank</p>
+                        <p><strong>Account Title:</strong> Added Soon</p>
+                        <p><strong>Account Number:</strong> Added Soon</p>
+                        <p><strong>IBAN:</strong> Added Soon</p>
+                        <p>After payment, please share the transaction receipt via WhatsApp.</p>
+                    </div>
+                    
+                    <div class="payment-method">
+                        <input type="radio" id="cod" name="payment" value="cod">
+                        <label for="cod" class="payment-method-label">
+                            <div class="payment-method-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="payment-method-text">
+                                <h4>Cash on Delivery (COD)</h4>
+                                <p>Pay when you receive</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="payment-details" id="cod-details">
+                        <p>Pay when you receive your order</p>
+                        <p>Available in all major cities</p>
+                        <p>Additional Rs. 100 delivery charges apply</p>
+                    </div>
+                </div>
+                
+                <div class="checkout-actions">
+                    <button type="button" class="btn" id="back-to-shipping">Back to Shipping</button>
+                    <button type="button" class="btn" id="complete-order">Complete Order</button>
+                </div>
+            </div>
+            
+            <!-- Success Step -->
+            <div class="checkout-content" id="success-step">
+                <div class="order-success">
+                    <i class="fas fa-check-circle"></i>
+                    <h2>Order Placed Successfully!</h2>
+                    <p>Thank you for your purchase from Hashmi Frangness</p>
+                    <div class="order-id">
+                        Order ID: <strong>Hashmi-1234</strong>
+                    </div>
+                    <p>Please share your Order ID on WhatsApp for order confirmation</p>
+                    <a href="https://wa.me/923138183103" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                    <p>We'll process your order and contact you soon.</p>
+                    <button class="btn close-confirmation">Continue Shopping</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="product-detail-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="product-detail" id="product-detail-content">
+                <!-- Product details will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cart functionality
+        let cart = [];
+        const cartIcon = document.querySelector('.cart-icon');
+        const cartModal = document.getElementById('cart-modal');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        const closeModal = document.querySelectorAll('.close-modal');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const viewDetailsButtons = document.querySelectorAll('.view-details');
+        const productDetailModal = document.getElementById('product-detail-modal');
+        const productDetailContent = document.getElementById('product-detail-content');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const sidebarOverlay = document.querySelector('.sidebar-overlay');
+        const closeSidebar = document.querySelector('.close-sidebar');
+        
+        // Checkout steps
+        const checkoutSteps = document.querySelectorAll('.step');
+        const checkoutContents = document.querySelectorAll('.checkout-content');
+        const continueShoppingBtn = document.getElementById('continue-shopping');
+        const proceedToShippingBtn = document.getElementById('proceed-to-shipping');
+        const backToCartBtn = document.getElementById('back-to-cart');
+        const proceedToPaymentBtn = document.getElementById('proceed-to-payment');
+        const backToShippingBtn = document.getElementById('back-to-shipping');
+        const completeOrderBtn = document.getElementById('complete-order');
+        const closeConfirmationBtn = document.querySelector('.close-confirmation');
+        
+        // Sample product details data
+        const productDetails = {
+            1: {
+                name: "Royal Eau de Parfume",
+                price: "8500",
+                description: "A luxurious blend of rare oud wood, amber, and spices. This rich, woody fragrance is perfect for evening wear and special occasions. The middle notes of rose and saffron add a touch of elegance, while the base of sandalwood and musk create a lasting impression. International Shipping Available, 100ml",
+                images: [
+                    "images/r1.webp",
+                    "images/r2.jpg",
+                    "images/r3.jpg",
+                    "images/h1.webp"
+                ]
+            },
+            2: {
+                name: "Hashmi De OUD",
+                price: "3800",
+                description: "A mysterious and sensual fragrance with notes of black OUD, vanilla, and patchouli. This warm, spicy scent is ideal for winter months and creates an aura of sophistication. The subtle hints of bergamot and jasmine in the top notes provide a fresh opening.",
+                images: [
+                    "images/royal oud1.webp",
+                    "images/royal oid 2.webp",
+                    "images/h3.webp",
+                    "images/royal oud.webp"
+                ]
+            },
+            3: {
+                name: "Royal Amber",
+                price: "2200",
+                description: "A floral masterpiece featuring the intoxicating scent of Royal Amber, combined with white musk and citrus notes. This feminine fragrance is perfect for daytime wear and evokes feelings of freshness and purity. The heart notes include lily of the valley and peony for added depth.",
+                images: [
+                  "images/Royal Amber2.webp",
+                    "images/Royal Amber1.webp",
+                    "images/Royal Amber.webp",
+                    "images/Royal Amber3.webp"
+                ]
+            },
+            4: {
+                name: "Hashmi Ingredients",
+                price: "5000",
+                description: "An exotic blend of precious our Ingredients, vetiver, and tonka bean. This unisex fragrance has a creamy, woody character with subtle spicy undertones. Ideal for those who appreciate earthy, complex scents with excellent longevity. The top notes of cardamom and pink pepper add an intriguing opening.",
+                images: [
+                    "images/h5.png",
+                    "images/2.webp",
+                    "images/r2.jpg",
+                    "images/1.webp"
+                ]
+            }
+        };
+        
+        // Open cart modal
+        cartIcon.addEventListener('click', () => {
+            cartModal.style.display = 'flex';
+            updateCartDisplay();
+            showCheckoutStep(1); // Show cart items step by default
+        });
+        
+        // Close modals
+        closeModal.forEach(btn => {
+            btn.addEventListener('click', () => {
+                cartModal.style.display = 'none';
+                productDetailModal.style.display = 'none';
+            });
+        });
+        
+        closeConfirmationBtn.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === cartModal) {
+                cartModal.style.display = 'none';
+            }
+            if (e.target === productDetailModal) {
+                productDetailModal.style.display = 'none';
+            }
+        });
+        
+        // Mobile sidebar toggle
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            sidebarOverlay.classList.add('active');
+        });
+        
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        });
+
+        sidebarOverlay.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+    });
+
+
+    // Close sidebar when clicking on a link
+    document.querySelectorAll('.sidebar-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        });
+    });
+        
+        // Add to cart functionality
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseInt(button.getAttribute('data-price'));
+                const image = button.getAttribute('data-image');
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        image,
+                        quantity: 1
+                    });
+                }
+                
+                updateCartCount();
+                alert(`${name} added to cart!`);
+            });
+        });
+        
+        // Update cart count
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.querySelector('.cart-count').textContent = count;
+        }
+        
+        // Update cart display
+        function updateCartDisplay() {
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="empty-cart-message">Your cart is empty</p>';
+                cartTotal.textContent = '0';
+                return;
+            }
+            
+            let itemsHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                itemsHTML += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <div class="cart-item-price">Rs. ${item.price}</div>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button class="decrease-quantity" data-id="${item.id}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="increase-quantity" data-id="${item.id}">+</button>
+                            <span class="remove-item" data-id="${item.id}"><i class="fas fa-trash"></i></span>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItemsContainer.innerHTML = itemsHTML;
+            cartTotal.textContent = total;
+            
+            // Add event listeners to quantity buttons
+            document.querySelectorAll('.decrease-quantity').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    
+                    if (item.quantity > 1) {
+                        item.quantity -= 1;
+                    } else {
+                        cart = cart.filter(item => item.id !== id);
+                    }
+                    
+                    updateCartDisplay();
+                    updateCartCount();
+                });
+            });
+            
+            document.querySelectorAll('.increase-quantity').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    item.quantity += 1;
+                    updateCartDisplay();
+                    updateCartCount();
+                });
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.getAttribute('data-id');
+                    cart = cart.filter(item => item.id !== id);
+                    updateCartDisplay();
+                    updateCartCount();
+                });
+            });
+        }
+        
+        // Checkout steps navigation
+        function showCheckoutStep(stepNumber) {
+            // Update steps
+            checkoutSteps.forEach((step, index) => {
+                if (index + 1 < stepNumber) {
+                    step.classList.remove('active');
+                    step.classList.add('completed');
+                } else if (index + 1 === stepNumber) {
+                    step.classList.add('active');
+                    step.classList.remove('completed');
+                } else {
+                    step.classList.remove('active', 'completed');
+                }
+            });
+            
+            // Update content
+            checkoutContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            document.getElementById(`${['cart', 'shipping', 'payment', 'success'][stepNumber - 1]}-step`).classList.add('active');
+        }
+        
+        // Checkout step buttons
+        continueShoppingBtn.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+        });
+        
+        proceedToShippingBtn.addEventListener('click', () => {
+            showCheckoutStep(2);
+        });
+        
+        backToCartBtn.addEventListener('click', () => {
+            showCheckoutStep(1);
+        });
+        
+        proceedToPaymentBtn.addEventListener('click', () => {
+            // Validate shipping form
+            const shippingForm = document.getElementById('shipping-form');
+            const requiredFields = shippingForm.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    field.style.borderColor = 'red';
+                    isValid = false;
+                } else {
+                    field.style.borderColor = '#ddd';
+                }
+            });
+            
+            if (isValid) {
+                showCheckoutStep(3);
+            } else {
+                alert('Please fill all required fields');
+            }
+        });
+        
+        backToShippingBtn.addEventListener('click', () => {
+            showCheckoutStep(2);
+        });
+        
+        completeOrderBtn.addEventListener('click', () => {
+            // Validate payment method
+            const selectedPayment = document.querySelector('input[name="payment"]:checked');
+            
+            if (!selectedPayment) {
+                alert('Please select a payment method');
+                return;
+            }
+            
+            // Generate random order ID
+            const orderId = 'Hashmi-' + Math.floor(1000 + Math.random() * 9000);
+            document.querySelector('.order-id strong').textContent = orderId;
+            
+            showCheckoutStep(4);
+            
+            // Clear cart
+            cart = [];
+            updateCartCount();
+        });
+        
+        // Payment method details toggle
+        document.querySelectorAll('input[name="payment"]').forEach(method => {
+            method.addEventListener('change', (e) => {
+                // Hide all payment details first
+                document.querySelectorAll('.payment-details').forEach(detail => {
+                    detail.classList.remove('active');
+                });
+                
+                // Show selected payment details
+                const detailsId = e.target.id + '-details';
+                document.getElementById(detailsId).classList.add('active');
+            });
+        });
+        
+        // View product details
+        viewDetailsButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const id = e.target.getAttribute('data-id');
+                const product = productDetails[id];
+                
+                productDetailContent.innerHTML = `
+                    <div class="product-images">
+                        <img src="${product.images[0]}" alt="${product.name}" class="product-main-image">
+                        <img src="${product.images[1]}" alt="${product.name}">
+                        <img src="${product.images[2]}" alt="${product.name}">
+                        <img src="${product.images[3]}" alt="${product.name}">
+                    </div>
+                    <div class="product-info-detail">
+                        <h2>${product.name}</h2>
+                        <div class="product-price">Rs. ${product.price}</div>
+                        <div class="product-description">
+                            <p>${product.description}</p>
+                        </div>
+                        <button class="btn add-to-cart" data-id="${id}" data-name="${product.name}" data-price="${product.price}" data-image="${product.images[0]}">Add to Cart</button>
+                    </div>
+                `;
+                
+                // Add event listener to the new add to cart button
+                const newAddToCart = productDetailContent.querySelector('.add-to-cart');
+                newAddToCart.addEventListener('click', () => {
+                    const id = newAddToCart.getAttribute('data-id');
+                    const name = newAddToCart.getAttribute('data-name');
+                    const price = parseInt(newAddToCart.getAttribute('data-price'));
+                    const image = newAddToCart.getAttribute('data-image');
+                    
+                    const existingItem = cart.find(item => item.id === id);
+                    
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({
+                            id,
+                            name,
+                            price,
+                            image,
+                            quantity: 1
+                        });
+                    }
+                    
+                    updateCartCount();
+                    alert(`${name} added to cart!`);
+                    productDetailModal.style.display = 'none';
+                });
+                
+                productDetailModal.style.display = 'flex';
+            });
+        });
+        
+        // Star rating for reviews
+        const stars = document.querySelectorAll('.rating-input i');
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const rating = parseInt(star.getAttribute('data-rating'));
+                
+                stars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.classList.remove('far');
+                        s.classList.add('fas', 'active');
+                    } else {
+                        s.classList.remove('fas', 'active');
+                        s.classList.add('far');
+                    }
+                });
+            });
+        });
+        
+        // Submit review
+        const reviewForm = document.getElementById('new-review');
+        reviewForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('review-name').value;
+            const location = document.getElementById('review-location').value;
+            const text = document.getElementById('review-text').value;
+            const rating = document.querySelectorAll('.rating-input i.active').length;
+            
+            if (rating === 0) {
+                alert('Please select a rating');
+                return;
+            }
+            
+            // Create new review element
+            const reviewGrid = document.querySelector('.review-grid');
+            const newReview = document.createElement('div');
+            newReview.className = 'review-card';
+            newReview.innerHTML = `
+                <div class="stars">
+                    ${'<i class="fas fa-star"></i>'.repeat(rating)}
+                    ${'<i class="far fa-star"></i>'.repeat(5 - rating)}
+                </div>
+                <p>"${text}"</p>
+                <div class="reviewer">
+                    <img src="https://randomuser.me/api/portraits/${Math.random() > 0.5 ? 'men' : 'women'}/${Math.floor(Math.random() * 100)}.jpg" alt="${name}">
+                    <div class="reviewer-info">
+                        <h4>${name}</h4>
+                        <p>${location}</p>
+                    </div>
+                </div>
+            `;
+            
+            // Add new review to the beginning
+            reviewGrid.prepend(newReview);
+            
+            // Reset form
+            reviewForm.reset();
+            stars.forEach(star => {
+                star.classList.remove('fas', 'active');
+                star.classList.add('far');
+            });
+            
+            alert('Thank you for your review!');
+        });
+        
+        // Newsletter form
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input').value;
+            alert(`Thank you for subscribing with ${email}!`);
+            newsletterForm.reset();
+        });
+    </script>
+</body>
+</html>
