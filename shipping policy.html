@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Policy - Hashmi Frangness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/jpg" href="images/hashmi itar1.png">
+    <style>
+        :root {
+            --primary-color: #8e44ad;
+            --secondary-color: #9b59b6;
+            --accent-color: #e74c3c;
+            --light-color: #f9f9f9;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --white: #fff;
+        }
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        
+        /* Shipping Policy Content */
+        .shipping-policy {
+            padding: 60px 0;
+        }
+        
+        .policy-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .policy-header h1 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .policy-content {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .policy-section {
+            margin-bottom: 30px;
+        }
+        
+        .policy-section h2 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .policy-section p {
+            margin-bottom: 15px;
+        }
+        
+        .policy-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .policy-section li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            background-color: #f8f4ff;
+            padding: 20px;
+            border-left: 4px solid var(--primary-color);
+            margin: 20px 0;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .policy-header h1 {
+                font-size: 28px;
+            }
+            
+            .policy-content {
+                padding: 25px;
+            }
+            
+            .policy-section h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo"><i class="fas fa-spa"></i>Hashmi <span>Frangness</span></a>
+        </div>
+    </header>
+
+    <!-- Shipping Policy Content -->
+    <section class="shipping-policy">
+        <div class="container">
+            <div class="policy-header">
+                <h1>Shipping Policy</h1>
+                <p>Last Updated: June 2023</p>
+            </div>
+            
+            <div class="policy-content">
+                <div class="policy-section">
+                    <h2>1. Delivery Areas</h2>
+                    <p>We currently ship to all major cities and towns across Pakistan. Our delivery network covers:</p>
+                    <ul>
+                        <li>All provincial capitals (Karachi, Lahore, Islamabad, Peshawar, Quetta)</li>
+                        <li>Major cities in all provinces</li>
+                        <li>Selected rural areas (please check availability at checkout)</li>
+                    </ul>
+                    <p>International shipping is available on select products. Please contact our customer service for international orders.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>2. Processing Time</h2>
+                    <p>All orders are processed within 1-2 business days (excluding weekends and public holidays). Processing time may be longer during sale periods or promotional events.</p>
+                    <div class="highlight">
+                        <p><strong>Note:</strong> The processing time begins after payment verification for prepaid orders and order confirmation for Cash on Delivery orders.</p>
+                    </div>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>3. Shipping Methods & Delivery Time</h2>
+                    <p>We partner with trusted courier services to ensure safe and timely delivery of your orders:</p>
+                    <ul>
+                        <li><strong>Standard Delivery:</strong> 2-3 business days (Rs. 150-200 depending on location)</li>
+                        <li><strong>Express Delivery:</strong> 1-2 business days (Rs. 300-400 depending on location)</li>
+                        <li><strong>Same Day Delivery:</strong> Available in select cities (Rs. 400-600) - Order must be placed before 12 PM</li>
+                    </ul>
+                    <p>Delivery times are estimates and may vary depending on your location and courier service schedules.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>4. Shipping Charges</h2>
+                    <p>Shipping charges are calculated based on:</p>
+                    <ul>
+                        <li>Delivery location</li>
+                        <li>Package weight and dimensions</li>
+                        <li>Selected shipping method</li>
+                    </ul>
+                    <p><strong>Free shipping</strong> is available on all orders over Rs. 5,000 (standard delivery only).</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>5. Order Tracking</h2>
+                    <p>Once your order is shipped, you will receive a confirmation email with tracking information. You can track your order:</p>
+                    <ul>
+                        <li>Through the tracking link in your email</li>
+                        <li>By logging into your account on our website</li>
+                        <li>By contacting our customer support</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>6. Delivery Issues</h2>
+                    <p>If you encounter any issues with your delivery, please contact us immediately:</p>
+                    <ul>
+                        <li><strong>Undelivered packages:</strong> Contact us within 7 days of expected delivery date</li>
+                        <li><strong>Damaged packages:</strong> Do not accept the package if it appears damaged. Take photos and contact us immediately.</li>
+                        <li><strong>Wrong items received:</strong> Contact us within 48 hours of delivery</li>
+                    </ul>
+                    <div class="highlight">
+                        <p><strong>Important:</strong> We are not responsible for delays caused by incorrect shipping information, customs clearance, or circumstances beyond our control (natural disasters, strikes, etc.).</p>
+                    </div>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>7. Returns & Refunds</h2>
+                    <p>If Product not same then back and refunds your payment, for information about returns and refunds related to shipping issues.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h2>8. Contact Us</h2>
+                    <p>For any questions about our shipping policy, please contact our customer service:</p>
+                    <ul>
+                        <li><strong>Email:</strong> support@hashmifrangness.com</li>
+                        <li><strong>Phone:</strong> +92 3055010392 (10 AM - 6 PM, Monday-Saturday)</li>
+                        <li><strong>WhatsApp:</strong> +92 3327055550</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+</body>
+</html>

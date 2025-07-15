@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Policies - Hashmi Frangness</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #8e44ad;
+      --secondary-color: #9b59b6;
+      --accent-color: #e74c3c;
+      --light-color: #f9f9f9;
+      --dark-color: #2c3e50;
+      --text-color: #333;
+      --white: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--light-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px 0;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo span {
+      color: var(--accent-color);
+    }
+
+    .logo i {
+      margin-right: 10px;
+      font-size: 28px;
+    }
+
+    .section {
+      padding: 60px 0;
+    }
+
+    .policy-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .policy-header h1 {
+      font-size: 36px;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .policy-content {
+      background-color: var(--white);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .policy-section {
+      margin-bottom: 30px;
+    }
+
+    .policy-section h2 {
+      font-size: 24px;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--light-color);
+    }
+
+    .policy-section p,
+    .policy-section li {
+      margin-bottom: 15px;
+    }
+
+    .policy-section ul {
+      margin-left: 20px;
+    }
+
+    .highlight {
+      background-color: #f8f4ff;
+      padding: 20px;
+      border-left: 4px solid var(--primary-color);
+      margin: 20px 0;
+    }
+
+    footer {
+      background-color: var(--dark-color);
+      color: var(--white);
+      padding: 40px 0 20px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--accent-color);
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      .policy-header h1 {
+        font-size: 28px;
+      }
+
+      .policy-content {
+        padding: 25px;
+      }
+
+      .policy-section h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="container header-container">
+    <a href="index.html" class="logo"><i class="fas fa-spa"></i>Hashmi <span>Frangness</span></a>
+  </div>
+</header>
+
+<!-- Privacy Policy -->
+<section class="section">
+  <div class="container">
+    <div class="policy-header">
+      <h1>Privacy Policy</h1>
+      <p>Effective Date: July 2025</p>
+    </div>
+    <div class="policy-content">
+      <div class="policy-section">
+        <h2>1. Information We Collect</h2>
+        <p>We collect your name, email, shipping address, phone number, and payment details when you place an order.</p>
+      </div>
+      <div class="policy-section">
+        <h2>2. How We Use Your Information</h2>
+        <ul>
+          <li>To process and fulfill your orders</li>
+          <li>To send order updates</li>
+          <li>To improve our services and marketing</li>
+        </ul>
+      </div>
+      <div class="policy-section">
+        <h2>3. Sharing Information</h2>
+        <p>We do not sell your data. We only share it with delivery and payment partners as needed.</p>
+      </div>
+      <div class="policy-section">
+        <h2>4. Your Consent</h2>
+        <p>By using our site, you consent to our privacy practices.</p>
+      </div>
+      <div class="policy-section">
+        <h2>5. Contact Us</h2>
+        <p>Email: support@hashmifrangness.com</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Terms & Conditions -->
+<section class="section">
+  <div class="container">
+    <div class="policy-header">
+      <h1>Terms & Conditions</h1>
+      <p>Effective Date: July 2025</p>
+    </div>
+    <div class="policy-content">
+      <div class="policy-section">
+        <h2>1. Introduction</h2>
+        <p>By using our website, you agree to these terms. If you don’t agree, please do not use our site.</p>
+      </div>
+      <div class="policy-section">
+        <h2>2. Products & Pricing</h2>
+        <p>Prices and availability may change without notice. We reserve the right to cancel orders.</p>
+      </div>
+      <div class="policy-section">
+        <h2>3. Intellectual Property</h2>
+        <p>All content is owned by Hashmi Frangness. You may not copy or reproduce it without permission.</p>
+      </div>
+      <div class="policy-section">
+        <h2>4. Governing Law</h2>
+        <p>This agreement is governed by the laws of Pakistan.</p>
+      </div>
+      <div class="policy-section">
+        <h2>5. Contact Us</h2>
+        <p>For questions, reach out at support@hashmifrangness.com</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+</body>
+</html>
