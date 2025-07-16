@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hashmi Fragrances - Gifts & Promotions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/jpg" href="images/hashmi itar1.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .section-title p {
+            color: #666;
+            font-size: 18px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #b78d65;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: #a57a50;
+        }
+        
+        /* Order Check Form */
+        .order-check-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        /* Gifts & Promotions Section */
+        .gifts-promo {
+            background: linear-gradient(135deg, #f9f3e9 0%, #f5e8d5 100%);
+            padding: 60px 0;
+        }
+        
+        .gifts-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .gift-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gift-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gift-icon {
+            font-size: 40px;
+            color: #b78d65;
+            margin-bottom: 15px;
+        }
+        
+        .gift-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .gift-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .gift-progress {
+            margin: 20px 0;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: var(--progress, 0%);
+            background: #b78d65;
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-amount {
+            position: absolute;
+            top: -25px;
+            left: 0;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .pkr {
+            font-family: sans-serif;
+        }
+        
+        .gift-card-code, .gift-message {
+            padding: 15px;
+            background: #f9f3e9;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        
+        .gift-card-code span {
+            font-weight: bold;
+            color: #b78d65;
+        }
+        
+        .promo-share {
+            background: #25D366;
+            color: white;
+        }
+        
+        .promo-share * {
+            color: white !important;
+        }
+        
+        .promo-share .gift-icon {
+            color: white !important;
+        }
+        
+        .promo-code {
+            display: flex;
+            margin: 20px 0;
+        }
+        
+        .promo-code input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .share-whatsapp {
+            background: white;
+            color: #25D366 !important;
+            margin-left: 10px;
+        }
+
+        .whatsapp-btn{
+            background: rgb(68, 68, 68);
+            color: #25D366 !important;
+            margin-left: 10px;
+        }
+        
+        .small-text {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+        
+        .result-message {
+            padding: 20px;
+            background: #f0f8ff;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .gifts-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="order-check">
+        <div class="container">
+            <div class="section-title">
+                <h2>Check Your Order Benefits</h2>
+                <p>Enter your order details to see your gifts and promotions</p>
+            </div>
+            
+            <div class="order-check-form">
+                <div class="form-group">
+                    <label for="order-id">Order ID</label>
+                    <input type="text" id="order-id" placeholder="Enter your order ID">
+                </div>
+                
+                <div class="form-group">
+                    <label for="order-amount">Order Amount (PKR)</label>
+                    <input type="number" id="order-amount" placeholder="Enter order amount in PKR">
+                </div>
+                
+                <button class="btn" id="check-benefits">Check Benefits</button>
+                
+                <div class="result-message" id="result-message">
+                    <!-- Results will be shown here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gifts & Promotions Section -->
+    <section class="gifts-promo" id="gifts-promo">
+        <div class="container">
+            <div class="section-title">
+                <h2>Special Gifts & Promotions</h2>
+                <p>Enjoy exclusive benefits with every purchase</p>
+            </div>
+            
+            <div class="gifts-container">
+                <!-- Gift Card Offer -->
+                <div class="gift-card">
+                    <div class="gift-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Gift Card Bonus</h3>
+                    <p>Get <span class="pkr">PKR</span> 300 gift card on purchases above <span class="pkr">PKR</span> 5,000</p>
+                    <div class="gift-progress">
+                        <div class="progress-bar" data-target="5000">
+                            <span class="progress-amount"><span class="pkr">PKR</span> 0/<span class="pkr">PKR</span> 5,000</span>
+                        </div>
+                    </div>
+                    <div class="gift-card-code" id="gift-card-code" style="display:none;">
+                        <p>Your Gift Card Code: <span id="gift-code">HASHMI500</span></p>
+                        <button class="btn copy-code">Copy Code</button>
+                    </div>
+                </div>
+                
+                <!-- Free Delivery Offer -->
+                <div class="gift-card">
+                    <div class="gift-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Free Delivery</h3>
+                    <p>Free shipping on orders above <span class="pkr">PKR</span> 10,000</p>
+                    <div class="gift-progress">
+                        <div class="progress-bar" data-target="10000">
+                            <span class="progress-amount"><span class="pkr">PKR</span> 0/<span class="pkr">PKR</span> 10,000</span>
+                        </div>
+                    </div>
+                    <div class="gift-message" id="free-delivery-message" style="display:none;">
+                        <p>Congratulations! You've unlocked free delivery</p>
+                    </div>
+                </div>
+                
+                <!-- Promo Code Sharing -->
+                <div class="gift-card promo-share">
+                    <div class="gift-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>Share & Get Discount</h3>
+                    <p>Share our promo code on WhatsApp and get 5% discount</p>
+                    <div class="promo-code">
+                        <input type="text" value="HASHMIFRIEND" readonly>
+                         <a href="https://wa.me/923327055550" class="whatsapp-btn" target="_blank">Share on WhatsApp</a>
+                    </div>
+                    <p class="small-text">Discount applies on next purchase</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check Benefits Button
+            document.getElementById('check-benefits').addEventListener('click', function() {
+                const orderId = document.getElementById('order-id').value;
+                const orderAmount = parseFloat(document.getElementById('order-amount').value);
+                const resultMessage = document.getElementById('result-message');
+                
+                if (!orderId || isNaN(orderAmount)) {
+                    resultMessage.innerHTML = '<p style="color:red;">Please enter valid order details</p>';
+                    resultMessage.style.display = 'block';
+                    return;
+                }
+                
+                // Update gift progress
+                updateGiftProgress(orderAmount);
+                
+                // Prepare result message
+                let message = `<h4>Order: ${orderId}</h4>`;
+                message += `<p>Amount: <span class="pkr">PKR</span> ${orderAmount.toLocaleString()}</p>`;
+                
+                if (orderAmount >= 5000) {
+                    message += `<p><i class="fas fa-check-circle" style="color:green;"></i> You qualify for a <span class="pkr">PKR</span> 300 gift card!</p>`;
+                }
+                
+                if (orderAmount >= 10000) {
+                    message += `<p><i class="fas fa-check-circle" style="color:green;"></i> You qualify for free delivery!</p>`;
+                }
+                
+                if (orderAmount < 5000) {
+                    message += `<p>Spend <span class="pkr">PKR</span> ${(5000-orderAmount).toLocaleString()} more to get a <span class="pkr">PKR</span> 300 gift card</p>`;
+                }
+                
+                resultMessage.innerHTML = message;
+                resultMessage.style.display = 'block';
+            });
+            
+            // Copy code button
+            document.querySelector('.copy-code')?.addEventListener('click', function() {
+                const code = document.getElementById('gift-code').textContent;
+                navigator.clipboard.writeText(code);
+                this.textContent = 'Copied!';
+                setTimeout(() => this.textContent = 'Copy Code', 2000);
+            });
+            
+            // WhatsApp share button
+            document.querySelector('.share-whatsapp')?.addEventListener('click', function() {
+                const promoCode = this.closest('.promo-code').querySelector('input').value;
+                const message = `Get 5% discount on Hashmi Fragrances! Use promo code: ${promoCode}\n\nShop now: ${window.location.href}`;
+                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+            });
+            
+            // Initialize with 0
+            updateGiftProgress(0);
+        });
+        
+        function updateGiftProgress(total) {
+            // Update all progress bars
+            document.querySelectorAll('.progress-bar').forEach(bar => {
+                const target = parseInt(bar.dataset.target);
+                const percent = Math.min((total / target) * 100, 100);
+                bar.style.setProperty('--progress', `${percent}%`);
+                
+                // Update amount text
+                const amountText = bar.querySelector('.progress-amount');
+                amountText.innerHTML = `<span class="pkr">PKR</span> ${Math.min(total, target).toLocaleString()}/<span class="pkr">PKR</span> ${target.toLocaleString()}`;
+            });
+            
+            // Show/hide gift card code
+            const giftCardCode = document.getElementById('gift-card-code');
+            if (total >= 5000) {
+                giftCardCode.style.display = 'block';
+            } else {
+                giftCardCode.style.display = 'none';
+            }
+            
+            // Show/hide free delivery message
+            const freeDeliveryMsg = document.getElementById('free-delivery-message');
+            if (total >= 10000) {
+                freeDeliveryMsg.style.display = 'block';
+            } else {
+                freeDeliveryMsg.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

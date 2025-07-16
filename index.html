@@ -1560,6 +1560,126 @@
 
 
 
+.more-pics-btn {
+    margin-top: 15px;
+    background: #18a14d;
+    color: #ffffff;
+    border: 1px solid #ddd;
+}
+
+.more-pics-container {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+.more-pics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.more-pic-item {
+    position: relative;
+}
+
+.more-pic-item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.pic-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.rating {
+    color: #ffb300;
+}
+
+.buyers {
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .more-pics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+ /* Gifts Styles */
+    .gift-containerr {
+        position: fixed;
+        top: 15px;
+        left: 320px;
+        z-index: 1000;
+    }
+
+    .gift-toggle-btnn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+     .gift-toggle-btnn a i{
+        background-color: var(--primary-color);
+        color: var(--white);
+     }
+
+    .gift-toggle-btnn:hover {
+        background-color: var(--secondary-color);
+        transform: scale(1.1);
+    }
+
+
+@media (max-width: 480px) {
+.gift-containerr {
+        position: fixed;
+        top: 15px;
+        left: 10px;
+        z-index: 1000;
+    }
+     .gift-toggle-btnn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+}
+
+
+
+
+
+
+
+
     </style>
 </head>
 <body>
@@ -1570,7 +1690,7 @@
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#products">Products</a></li>
+                    <li><a href="#best-hashmi-oud">Shop</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#ingredients">Ingredients</a></li>
@@ -1587,7 +1707,7 @@
             <!-- Mobile Navigation -->
             <div class="mobile-nav">
                 <a href="#home"><i class=" fas fa-home"></i> Home</a>
-                <a href="#products"><i class=" fas fa-store"></i> Shop</a>
+                <a href="#best-hashmi-oud"><i class=" fas fa-store"></i> Shop</a>
                 <a href="#contact"><i class=" fas fa-envelope"></i> Contact</a>
                 <a href="#" class="mobile-cart">
                     <i class="fas fa-shopping-cart"></i>  Cart
@@ -1603,7 +1723,7 @@
         <div class="hero-content">
             <h1>Discover the Elegance of Hashmi Fragness</h1>
             <p>At Hashmi Fragness, we believe fragrance is more than just a scent — it's an expression of identity. Crafted with passion and precision.</p>
-            <a href="#products" class="btnn">Shop Now</a>
+            <a href="#best-hashmi-oud" class="btnn">Shop Now</a>
         </div>
     </section>
 
@@ -1612,39 +1732,140 @@
 
 
 
-
-
-
- <!-- Hashmi Special Itar Section -->
-    <section class="products" id="hashmi-itar">
-        <div class="container">
-            <div class="section-title">
-                <h2>Hashmi Special attar</h2>
-                <p>Traditional attar with modern elegance</p>
+<!-- Best Hashmi OUD Section -->
+<section class="products" id="best-hashmi-oud">
+    <div class="container">
+        <div class="section-title">
+            <h2>Best Hashmi OUD</h2>
+            <p>Premium Oudh fragrance with rich tradition</p>
+        </div>
+        
+        <div class="special-itar">
+            <div class="itar-image">
+                <img src="images/p8.webp" alt="Best Hashmi OUD">
+                <a href="#oud-more-pics-container"><button class="btn more-pics-btn" id="oud-more-pics">More Details</button></a>
             </div>
-            
-            <div class="special-itar">
-                <div class="itar-image">
-                    <img src="images/hashmi itar1.png" alt="Hashmi Special Itar">
+            <div class="itar-content">
+                <h2>Royal Hashmi OUD</h2>
+                <p>An exquisite blend of rare agarwood, spices, and floral notes. This premium Oudh oil is distilled using traditional methods to preserve its authentic richness and depth.</p>
+                
+                <div class="itar-details">
+                    <p><strong>Size:</strong> 50ml</p>
+                    <p><strong>Fragrance Type:</strong> Woody, Spicy, Floral</p>
+                    <p><strong>Longevity:</strong> 10 days</p>
+                    <p><strong>Occasion:</strong> Special events, Evening wear</p>
+                    <p><strong>Ingredients:</strong> Pure Agarwood, Saffron, Rose, Sandalwood</p>
                 </div>
-                <div class="itar-content">
-                    <h2>Sultan E Hashmi</h2>
-                    <p>A luxurious blend of rare rose petals, sandalwood, and spices. This traditional attar is crafted using ancient techniques that have been perfected over generations.</p>
-                    
-                    <div class="itar-details">
-                        <p><strong>Size:</strong> 15ml</p>
-                        <p><strong>Fragrance Type:</strong> Floral, Woody</p>
-                        <p><strong>Longevity:</strong> 2-3 days</p>
-                        <p><strong>Occasion:</strong> Everyday wear, Special occasions</p>
+                <div class="pic-infoo">
+                        <span class="rating">★★★★★ 4.9</span>
+                        <span class="buyers">20,000+ buyers</span>
                     </div>
-                    
-                    <div class="price">Rs. 1,800</div>
-                    
-                    <button class="btn add-to-cart" data-id="8" data-name="Sultan E Hashmi" data-price="1800" data-image="images/hashmi itar1.png">Add to Cart</button>
+                
+                <div class="price">Rs. 10,500</div>
+                
+                <button class="btn add-to-cart" data-id="9" data-name="Royal Hashmi OUD" data-price="10500" data-image="images/p8.webp">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Hidden More Pics Section -->
+        <div class="more-pics-container" id="oud-more-pics-container" style="display: none;">
+            <h3>Customer Experiences</h3>
+            <div class="more-pics-grid">
+                <div class="more-pic-item">
+                    <img src="images/p6.jpg" alt="OUD Customer Image 1">
+                    <div class="pic-info">
+                        <span class="rating">★★★★★ 4.9</span>
+                        <span class="buyers">10,000+ buyers</span>
+                    </div>
+                </div>
+                <div class="more-pic-item">
+                    <img src="images/p3.jpg" alt="OUD Customer Image 2">
+                    <div class="pic-info">
+                        <span class="rating">★★★★★ 4.3</span>
+                        <span class="buyers">50,000+ buyers</span>
+                    </div>
+                </div>
+                <div class="more-pic-item">
+                    <img src="images/p4.jpg" alt="OUD Customer Image 3">
+                    <div class="pic-info">
+                        <span class="rating">★★★★★ 3.9</span>
+                        <span class="buyers">12,000+ buyers</span>
+                    </div>
+                </div>
+                <div class="more-pic-item">
+                    <img src="images/p5.jpg" alt="OUD Customer Image 4">
+                    <div class="pic-info">
+                        <span class="rating">★★★★★ 4.9</span>
+                        <span class="buyers">20,000+ buyers</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
+
+
+
+
+<!-- Best Hashmi OUD Section 2-->
+<section class="products" id="best-hashmi-oud">
+    <div class="container">
+        <div class="section-title">
+            <h2>Hashmi Jasmine</h2>
+            <p>Best Jasmine fragrance with rich tradition</p>
+        </div>
+        
+        <div class="special-itar">
+            <div class="itar-image">
+                <img src="images/p11.jpg" alt="Best Hashmi OUD">
+                <a href="#oud-more-pics-containerr"><button class="btn more-pics-btn" id="oud-more-picss">More Details</button></a>
+            </div>
+            <div class="itar-content">
+                <h2>Hashmi Jasmine</h2>
+                <p>An exquisite blend of rare Jasmine, spices, and ambernotes. This premium jasmine oil is distilled using traditional methods to preserve its authentic richness and depth.</p>
+                
+                <div class="itar-details">
+                    <p><strong>Size:</strong> 50ml</p>
+                    <p><strong>Fragrance Type:</strong> Woody, Spicy, Floral</p>
+                    <p><strong>Longevity:</strong> 2-4 days</p>
+                    <p><strong>Occasion:</strong> Special events, Evening wear</p>
+                    <p><strong>Ingredients:</strong> Pure Amber, Rose</p>
+                </div>
+                <div class="pic-infoo">
+                        <span class="rating">★★★★★ 4.2</span>
+                        <span class="buyers">10,000+ buyers</span>
+                    </div>
+                
+                <div class="price">Rs. 2,500</div>
+                
+                <button class="btn add-to-cart" data-id="10" data-name="Hashmi Jasmine" data-price="2500" data-image="images/p11.jpg">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Hidden More Pics Section -->
+        <div class="more-pics-container" id="oud-more-pics-containerr" style="display: none;">
+            <h3>Customer Experiences</h3>
+            <div class="more-pics-grid">
+                <div class="more-pic-item">
+                    <img src="images/p2.jpg" alt="OUD Customer Image 1">
+                    <div class="pic-info">
+                        <span class="rating">★★★★★ 4.2</span>
+                        <span class="buyers">10,000+ buyers</span>
+                    </div>
+                </div>
+                <div class="more-pic-item">
+                    <img src="images/p1.jpg" alt="OUD Customer Image 2">
+                    <div class="pic-info">
+                        <span class="rating">★★★★★ 4.2</span>
+                        <span class="buyers">10,000+ buyers</span>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div></section>
+
 
 
 
@@ -1750,13 +1971,65 @@
     </section>
 
 
+
+
+
+
+
+
+
+ <!-- Hashmi Special Itar Section -->
+    <section class="products" id="hashmi-itar">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hashmi Special attar</h2>
+                <p>Traditional attar with modern elegance</p>
+            </div>
+            
+            <div class="special-itar">
+                <div class="itar-image">
+                    <img src="images/hashmi itar1.png" alt="Hashmi Special Itar">
+                </div>
+                <div class="itar-content">
+                    <h2>Sultan E Hashmi</h2>
+                    <p>A luxurious blend of rare rose petals, sandalwood, and spices. This traditional attar is crafted using ancient techniques that have been perfected over generations.</p>
+                    
+                    <div class="itar-details">
+                        <p><strong>Size:</strong> 15ml</p>
+                        <p><strong>Fragrance Type:</strong> Floral, Woody</p>
+                        <p><strong>Longevity:</strong> 2-3 days</p>
+                        <p><strong>Occasion:</strong> Everyday wear, Special occasions</p>
+                    </div>
+                     <div class="pic-infoo">
+                        <span class="rating">★★★★★ 4.9</span>
+                        <span class="buyers">30,000+ buyers</span>
+                    </div>
+                    
+                    <div class="price">Rs. 1,800</div>
+                    
+                    <button class="btn add-to-cart" data-id="8" data-name="Sultan E Hashmi" data-price="1800" data-image="images/hashmi itar1.png">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
                     <h2>Our Story</h2>
-                    <p>Hashmi Frangness was founded in 2010 with a vision to bring luxury fragrances to Pakistan at accessible prices. Our founder, Baqer Ali Hashmi, was inspired by his travels through the Middle East and Europe, where he discovered the art of perfumery.</p>
+                    <p>Hashmi Frangness was founded in 2010 with a vision to bring luxury fragrances to Pakistan at accessible prices. Our founder, Baqer Hashmi, was inspired by his travels through the Middle East and Europe, where he discovered the art of perfumery.</p>
                     <p>Today, we combine traditional Eastern fragrance techniques with modern Western influences to create unique scents that stand out in the market.</p>
                     <p>Our mission is to provide premium quality perfumes that enhance your personality and leave a lasting impression.</p>
                 </div>
@@ -1986,6 +2259,10 @@
         </div>
     </section>
 
+
+
+
+    <footer></footer>
     <!-- Footer -->
     <footer id="contact">
         <div class="container">
@@ -2260,6 +2537,17 @@
 
 
 
+
+
+
+
+
+<!-- Add this HTML just before the closing </body> tag -->
+<div class="gift-containerr">
+    <button class="gift-toggle-btnn">
+     <a href="gifts.html"><i class="fa-solid fa-gift"></i></a>
+    </button>
+</div>
 
 
 
@@ -2901,9 +3189,30 @@
 
 
 
+document.getElementById('oud-more-pics').addEventListener('click', function() {
+    const morePicsContainer = document.getElementById('oud-more-pics-container');
+    if (morePicsContainer.style.display === 'none') {
+        morePicsContainer.style.display = 'block';
+        this.textContent = 'Hide Pics';
+    } else {
+        morePicsContainer.style.display = 'none';
+        this.textContent = 'More Pics';
+    }
+});
 
 
 
+
+document.getElementById('oud-more-picss').addEventListener('click', function() {
+    const morePicsContainer = document.getElementById('oud-more-pics-containerr');
+    if (morePicsContainer.style.display === 'none') {
+        morePicsContainer.style.display = 'block';
+        this.textContent = 'Hide Pics';
+    } else {
+        morePicsContainer.style.display = 'none';
+        this.textContent = 'More Pics';
+    }
+});
 
 
 
