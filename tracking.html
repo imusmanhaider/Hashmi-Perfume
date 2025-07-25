@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Order - Hashmi Fragrance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/jpg" href="images/logo.png">
+    <style>
+        :root {
+            --primary-color: #8e44ad;
+            --secondary-color: #f39c12;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --hashmi-color: #9b59b6;
+            --fragrance-color: #e74c3c;
+            --gold-accent: #d4af37;
+            --success-color: #27ae60;
+            --info-color: #3498db;
+            --warning-color: #f39c12;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--hashmi-color);
+        }
+        
+        .navbar-brand .fragrance {
+            color: var(--fragrance-color);
+        }
+        
+        .navbar-brand .rose-icon {
+            color: #e74c3c;
+            margin-left: 5px;
+        }
+        
+        .tracking-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1594035910387-fea47794261f') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tracking-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(142, 68, 173, 0.3) 0%, rgba(231, 76, 60, 0.3) 100%);
+            z-index: 0;
+        }
+        
+        .tracking-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 0.8s ease;
+        }
+        
+        .tracking-subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: fadeIn 1s ease;
+            animation-delay: 0.3s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        
+        .tracking-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            background-color: white;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .tracking-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .tracking-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--hashmi-color), var(--fragrance-color));
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 8px;
+        }
+        
+        .form-control, .form-select {
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            font-size: 15px;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--hashmi-color);
+            box-shadow: 0 0 0 0.25rem rgba(155, 89, 182, 0.15);
+        }
+        
+        .btn-track {
+            background: linear-gradient(135deg, var(--hashmi-color) 0%, var(--fragrance-color) 100%);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            width: 100%;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+        }
+        
+        .btn-track:hover {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(155, 89, 182, 0.4);
+        }
+        
+        .btn-track::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--fragrance-color) 0%, var(--hashmi-color) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .btn-track:hover::before {
+            opacity: 1;
+        }
+        
+        .order-result {
+            display: none;
+            margin-top: 30px;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .order-status-card {
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            background-color: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--hashmi-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .order-status-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(155, 89, 182, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: 0;
+        }
+        
+        .order-id {
+            color: var(--hashmi-color);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .status-badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-processing {
+            background-color: rgba(243, 156, 18, 0.1);
+            color: var(--warning-color);
+            border: 1px solid rgba(243, 156, 18, 0.3);
+        }
+        
+        .status-dispatched {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--info-color);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+        
+        .status-delivered {
+            background-color: rgba(39, 174, 96, 0.1);
+            color: var(--success-color);
+            border: 1px solid rgba(39, 174, 96, 0.3);
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+        
+        .detail-value {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin-top: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 10px;
+            bottom: 10px;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--hashmi-color), var(--fragrance-color));
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: fadeInRight 0.5s ease forwards;
+        }
+        
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 5px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: white;
+            border: 5px solid var(--hashmi-color);
+            z-index: 2;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-item.completed::before {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .timeline-item.active::before {
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 0 8px rgba(155, 89, 182, 0.2);
+        }
+        
+        .timeline-item.current::before {
+            background-color: var(--hashmi-color);
+            border-color: var(--hashmi-color);
+        }
+        
+        .timeline-date {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-content {
+            font-weight: 500;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            border-left: 3px solid var(--hashmi-color);
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 15px;
+            width: 10px;
+            height: 10px;
+            background-color: #f8f9fa;
+            transform: rotate(45deg);
+            border-left: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .timeline-location {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: var(--hashmi-color);
+            background-color: rgba(155, 89, 182, 0.1);
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+        
+        .courier-info {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 3px solid var(--info-color);
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .courier-logo {
+            max-height: 45px;
+            margin-right: 15px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+        
+        .tracking-link {
+            color: var(--info-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .tracking-link:hover {
+            color: var(--hashmi-color);
+            text-decoration: none;
+            transform: translateX(5px);
+        }
+        
+        .error-message {
+            color: #dc3545;
+            font-size: 0.9rem;
+            margin-top: -15px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        
+        .city-highlight {
+            color: var(--hashmi-color);
+            font-weight: 600;
+            background-color: rgba(155, 89, 182, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .tracking-title {
+                font-size: 2.3rem;
+            }
+            
+            .tracking-card {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .tracking-title {
+                font-size: 2rem;
+            }
+            
+            .tracking-subtitle {
+                font-size: 1rem;
+            }
+            
+            .tracking-card {
+                padding: 25px;
+            }
+            
+            .timeline {
+                padding-left: 30px;
+            }
+            
+            .timeline-item::before {
+                left: -35px;
+                width: 20px;
+                height: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .tracking-header {
+                padding: 80px 0;
+            }
+            
+            .tracking-title {
+                font-size: 1.8rem;
+            }
+            
+            .tracking-card {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="hashmi">Hashmi</span> <span class="fragrance">Fragrance</span>
+                <i class="fas fa-rose rose-icon"></i>
+            </a>
+            
+            <div class="d-flex align-items-center ms-auto">
+                <div class="cart-icon" id="cartIcon">
+                    
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Perfumes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tracking.html">Track Order</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://wa.me/+923327055550">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Tracking Header -->
+    <section class="tracking-header">
+        <div class="container">
+            <h1 class="tracking-title">Track Your Order</h1>
+            <p class="tracking-subtitle">Enter your order details below to check the status of your Hashmi Fragrance purchase</p>
+        </div>
+    </section>
+    
+    <!-- Tracking Form -->
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="tracking-card">
+                    <form id="orderTrackingForm">
+                        <div class="mb-4">
+                            <label for="orderId" class="form-label">Order ID <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="orderId" placeholder="e.g. Hashmi-****" required>
+                            <div class="error-message" id="orderIdError">Please enter a valid Order ID </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="customerName" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="customerName" placeholder="John Doe">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="customerCity" class="form-label">Your City <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="customerCity" placeholder="e.g. Karachi" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="customerEmail" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="customerEmail" placeholder="your@email.com">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="orderDate" class="form-label">Order Date</label>
+                                <input type="date" class="form-control" id="orderDate">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="perfumeName" class="form-label">Perfume Name (Optional)</label>
+                            <select class="form-select" id="perfumeName">
+                                <option value="">Select Perfume</option>
+                                <option>Hashmi De OUD</option>
+                                <option>Hashmi Jasmine</option>
+                                <option>Sultan E Najaff</option>
+                                <option>Hashmi Royal Amber</option>
+                                <option>Hashmi Sandal</option>
+                                <option>Hashmi Fusion</option>
+                                <option>Hashmi Velvet</option>
+                                <option>Hashmi Attar</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-track">
+                                <i class="fas fa-search me-2"></i> Track Order
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Order Results -->
+                    <div class="order-result" id="orderResult">
+                        <hr class="my-4">
+                        <h4 class="mb-4">Order Status</h4>
+                        
+                        <div class="order-status-card">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div>
+                                    <div class="order-id" id="displayOrderId">Hashmi-1234</div>
+                                    <div class="detail-label">Order Details</div>
+                                </div>
+                                <span class="status-badge status-processing" id="orderStatus">Processing</span>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="detail-label">Customer Name</div>
+                                    <div class="detail-value" id="displayCustomerName">John Doe</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="detail-label">Delivery City</div>
+                                    <div class="detail-value" id="displayCustomerCity">Karachi</div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="detail-label">Order Date</div>
+                                    <div class="detail-value" id="displayOrderDate">15 June 2023</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="detail-label">Perfume Ordered</div>
+                                    <div class="detail-value" id="displayPerfumeName">Hashmi Royal Amber</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Order Timeline -->
+                            <div class="timeline" id="orderTimeline">
+                                <!-- Timeline will be generated here -->
+                            </div>
+                            
+                            <!-- Courier Information -->
+                            <div class="courier-info" id="courierInfo">
+                                <div class="d-flex align-items-center mb-3">
+                                    
+                                    <div>
+                                        <div class="detail-label">Courier Service</div>
+                                        <div class="detail-value" id="courierName">TCS Express</div>
+                                    </div>
+                                </div>
+                                <div class="detail-label">Tracking Number</div>
+                                <div class="detail-value mb-3" id="trackingNumber">Hashmi Fragrance</div>
+                                <a href="#" class="tracking-link" id="trackingLink" target="_blank">
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-info mt-4">
+                            <i class="fas fa-info-circle me-2"></i> 
+                            Need help with your order? <a href="https://wa.me/+923327055550" class="alert-link">Contact our support team</a>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+   
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form Validation and Submission
+        const orderTrackingForm = document.getElementById('orderTrackingForm');
+        const orderResult = document.getElementById('orderResult');
+        const orderIdInput = document.getElementById('orderId');
+        const orderIdError = document.getElementById('orderIdError');
+        
+        // Major Pakistani cities for reference
+        const pakistaniCities = [
+            'Karachi', 'Lahore', 'Faisalabad', 'Rawalpindi', 'Multan', 
+            'Hyderabad', 'Gujranwala', 'Peshawar', 'Quetta', 'Islamabad', 'Hasilpur',
+            'Bahawalpur', 'Sargodha', 'Sialkot', 'Bahawalnagar', 'Sukkur', 'Yazman',
+            'Larkana', 'Sheikhupura', 'Mardan', 'Gujrat', 'Ahmedpur', 'Rahim Yar Khan', 'Kasur'
+        ];
+        
+        // Validate Order ID format (Hashmi-1000 to Hashmi-100000)
+        function isValidOrderId(orderId) {
+            const regex = /^Hashmi-\d{4,6}$/;
+            if (!regex.test(orderId)) return false;
+            
+            const orderNum = parseInt(orderId.split('-')[1]);
+            return orderNum >= 1000 && orderNum <= 100000;
+        }
+        
+        // Format date for display
+        function formatDate(dateString) {
+            if (!dateString) return 'Not specified';
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+        
+        // Generate tracking number
+        function generateTrackingNumber() {
+            return 'TCS' + Math.floor(100000000 + Math.random() * 900000000) + 'PK';
+        }
+        
+        // Generate timeline based on city and order date
+        function generateTimeline(city, orderDate) {
+            const date = orderDate ? new Date(orderDate) : new Date();
+            const timeline = [];
+            const isBahawalpur = city.toLowerCase().includes('bahawalpur');
+            
+            // Order Received (always completed)
+            timeline.push({
+                date: new Date(date),
+                status: 'Order Received at Hashmi Fragrance',
+                completed: true,
+                location: 'Bahawalpur',
+                animationDelay: 0.2
+            });
+            
+            // Order Confirmed (1 day after)
+            date.setDate(date.getDate() + 0);
+            timeline.push({
+                date: new Date(date),
+                status: 'Order Confirmed',
+                completed: true,
+                location: 'Bahawalpur',
+                animationDelay: 0.4
+            });
+            
+            // Packaging (1-2 days after)
+            date.setDate(date.getDate() + Math.floor(Math.random() * 2) + 0);
+            timeline.push({
+                date: new Date(date),
+                status: 'Product Packaging Completed',
+                completed: true,
+                location: 'Bahawalpur',
+                animationDelay: 0.6
+            });
+            
+            // Moved to TCS Office
+            date.setDate(date.getDate() + 0);
+            timeline.push({
+                date: new Date(date),
+                status: 'Shipped to TCS Office',
+                completed: true,
+                location: 'Bahawalpur',
+                animationDelay: 0.8
+            });
+            
+            // In Transit
+            date.setDate(date.getDate() + 0);
+            timeline.push({
+                date: new Date(date),
+                status: 'In Transit to Destination City',
+                completed: !isBahawalpur,
+                active: !isBahawalpur,
+                location: isBahawalpur ? 'Bahawalpur' : 'In Transit',
+                animationDelay: 1.0
+            });
+            
+            if (!isBahawalpur) {
+                // Reached Destination City (2-3 days after dispatch)
+                date.setDate(date.getDate() + Math.floor(Math.random() * 2) + 0);
+                timeline.push({
+                    date: new Date(date),
+                    status: 'On the way ' + city + ' TCS Office',
+                    completed: true,
+                    location: city,
+                    animationDelay: 1.2
+                });
+                
+                // Out for Delivery
+                date.setDate(date.getDate() + 1);
+                timeline.push({
+                    date: new Date(date),
+                    status: 'Order in ' + city,
+                    completed: true,
+                    location: city,
+                    animationDelay: 1.4
+                });
+            }
+            
+            // Delivered
+            date.setDate(date.getDate() + (isBahawalpur ? 0 : 0));
+            timeline.push({
+                date: new Date(date),
+                status: 'Maybe Deliver',
+                completed: true,
+                active: true,
+                location: city,
+                animationDelay: isBahawalpur ? 1.0 : 1.6
+            });
+            
+            return timeline;
+        }
+        
+        // Update timeline display
+        function updateTimeline(timelineData) {
+            const timelineElement = document.getElementById('orderTimeline');
+            timelineElement.innerHTML = '';
+            
+            timelineData.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.className = `timeline-item ${item.completed ? 'completed' : ''} ${item.active ? 'active' : ''}`;
+                
+                const locationText = item.location ? `<span class="timeline-location">${item.location}</span>` : '';
+                
+                itemElement.innerHTML = `
+                    <div class="timeline-date">${formatDate(item.date)}</div>
+                    <div class="timeline-content">
+                        ${item.status}
+                        ${locationText}
+                    </div>
+                `;
+                
+                // Add animation with delay
+                itemElement.style.animationDelay = `${item.animationDelay || (index * 0.2)}s`;
+                
+                timelineElement.appendChild(itemElement);
+            });
+        }
+        
+        // Form submission
+        orderTrackingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const orderId = orderIdInput.value.trim();
+            const customerName = document.getElementById('customerName').value.trim() || 'Not specified';
+            const customerCity = document.getElementById('customerCity').value.trim() || 'Not specified';
+            const customerEmail = document.getElementById('customerEmail').value.trim() || 'Not specified';
+            const orderDate = document.getElementById('orderDate').value;
+            const perfumeName = document.getElementById('perfumeName').value || 'Not specified';
+            
+            // Validate Order ID
+            if (!isValidOrderId(orderId)) {
+                orderIdError.style.display = 'block';
+                orderIdInput.focus();
+                return;
+            }
+            
+            orderIdError.style.display = 'none';
+            
+            // Generate timeline based on city
+            const timeline = generateTimeline(customerCity, orderDate);
+            const trackingNumber = generateTrackingNumber();
+            const isDelivered = timeline[timeline.length - 1].completed;
+            
+            // Display order details
+            document.getElementById('displayOrderId').textContent = orderId;
+            document.getElementById('displayCustomerName').textContent = customerName;
+            document.getElementById('displayCustomerCity').textContent = customerCity;
+            document.getElementById('displayOrderDate').textContent = formatDate(orderDate);
+            document.getElementById('displayPerfumeName').textContent = perfumeName;
+            
+            // Update status badge
+            const statusBadge = document.getElementById('orderStatus');
+            statusBadge.textContent = isDelivered ? 'Not Delivered' : 'In Transit';
+            statusBadge.className = 'status-badge';
+            statusBadge.classList.add(isDelivered ? 'status-delivered' : 'status-dispatched');
+            
+            // Update timeline
+            updateTimeline(timeline);
+            
+            // Update courier info
+            document.getElementById('courierName').textContent = 'TCS Express';
+            document.getElementById('trackingNumber').textContent = trackingNumber;
+            document.getElementById('trackingLink').href = `https://www.tcsexpress.com/track/${trackingNumber}`;
+            document.getElementById('courierInfo').style.display = 'block';
+            
+            // Highlight Bahawalpur in timeline if applicable
+            if (customerCity.toLowerCase().includes('bahawalpur')) {
+                const timelineItems = document.querySelectorAll('.timeline-content');
+                timelineItems.forEach(item => {
+                    if (item.textContent.includes('Bahawalpur')) {
+                        const text = item.innerHTML;
+                        item.innerHTML = text.replace(/Bahawalpur/g, '<span class="city-highlight">Bahawalpur</span>');
+                    }
+                });
+            }
+            
+            // Show results
+            orderResult.style.display = 'block';
+            
+            // Scroll to results
+            orderResult.scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Initialize cart count
+        document.querySelector('.cart-count').textContent = '0';
+    </script>
+</body>
+</html>
